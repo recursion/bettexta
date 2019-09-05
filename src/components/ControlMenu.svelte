@@ -3,7 +3,7 @@
   import Power from "./Icons/Power.svelte";
   import Edit from "./Icons/Edit.svelte";
   import SubMenu from "./SubMenu.svelte";
-  import { keyMaps } from "../settings";
+  import { keyMaps, themes } from "../settings";
 
   export let id;
   export let container;
@@ -12,6 +12,7 @@
   export let updateSetting;
 
   let showEditorMenu = false;
+  let showThemeMenu = false;
   let left, height;
   let menu;
 
@@ -67,6 +68,10 @@
     background-color: rgba(0, 0, 0, 0);
     z-index: 5;
   }
+  .menu {
+    display: flex;
+    flex-direction: row;
+  }
 </style>
 
 <div class="modal" on:click|stopPropagation={toggleVisible} />
@@ -77,7 +82,10 @@
   style="top: {top}px;left: {left}px">
   <div
     class="settings-item"
-    on:mouseover={() => (showEditorMenu = false)}
+    on:mouseover={() => {
+      showEditorMenu = false;
+      showThemeMenu = false;
+    }}
     on:click|preventDefault|stopPropagation={() => {
       toggleActive();
       toggleVisible();
@@ -87,6 +95,9 @@
   </div>
   <div
     class="settings-item"
+    on:mouseover={() => {
+      showThemeMenu = false;
+    }}
     on:click|stopPropagation={() => {
       showEditorMenu = !showEditorMenu;
     }}>
@@ -100,6 +111,31 @@
         items={keyMaps}
         {id}
         title="keyMap"
+        close={() => {
+          showEditorMenu = false;
+        }}
+        {closeAll}
+        update={updateSetting} />
+    {/if}
+  </div>
+  <div
+    class="settings-item"
+    on:mouseover={() => {
+      showEditorMenu = false;
+    }}
+    on:click|stopPropagation={() => {
+      showThemeMenu = !showThemeMenu;
+    }}>
+    <Edit />
+    <span>
+      Theme
+      <span on:mouseover={() => (showThemeMenu = true)}>></span>
+    </span>
+    {#if showThemeMenu}
+      <SubMenu
+        items={themes}
+        {id}
+        title="theme"
         close={() => {
           showEditorMenu = false;
         }}

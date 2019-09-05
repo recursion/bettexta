@@ -3,7 +3,14 @@ import { writable } from "svelte/store";
 export const keyMaps = ["vim", "emacs", "sublime"];
 export const modes = ["javascript", "htmlmixed", "css"];
 export const linters = ["javascript", "css", "json"];
-export const themes = ["cobalt"];
+export const themes = [
+  "cobalt",
+  "the-matrix",
+  "night",
+  "ambiance",
+  "darkula",
+  "material"
+];
 
 const defaults = {
   keyMap: "sublime",

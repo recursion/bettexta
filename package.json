@@ -1,0 +1,52 @@
+{
+   "name": "bettexta",
+   "version": "0.0.1",
+   "description": "bettexta",
+   "main": " ",
+   "scripts": {
+      "build": "rollup -c",
+      "build:clean": "rm -fr dist/ && rollup -c",
+      "build:auto": "rollup -c -w",
+      "serve": "sirv dist",
+      "serve:dev": "sirv dist --dev",
+      "dev": "run-p build:auto serve:dev"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/recursion/bettexta.git"
+   },
+   "keywords": [
+      "Svelte",
+      "Rollup",
+      "extenstion",
+      "browser-extension",
+      "textarea",
+      "editor",
+      "javascript"
+   ],
+   "author": "recursion",
+   "license": "MIT",
+   "bugs": {
+      "url": "https://github.com/recursion/bettexta/issues"
+   },
+   "homepage": "https://github.com/recursion/bettexta#readme",
+   "devDependencies": {
+      "chokidar": "^3.0.0",
+      "cssnano": "^4.1.10",
+      "npm-run-all": "^4.1.5",
+      "rollup": "^1.12.1",
+      "rollup-plugin-commonjs": "^10.0.0",
+      "rollup-plugin-copy": "^3.1.0",
+      "rollup-plugin-livereload": "^1.0.1",
+      "rollup-plugin-node-resolve": "^5.0.0",
+      "rollup-plugin-postcss": "^2.0.3",
+      "rollup-plugin-svelte": "^5.0.3",
+      "rollup-plugin-terser": "^4.0.4",
+      "sirv-cli": "^0.4.2",
+      "svelte": "^3.4.0",
+      "ws": ">=3.3.1"
+   },
+   "dependencies": {
+      "codemirror": "^5.48.4"
+   }
+}
